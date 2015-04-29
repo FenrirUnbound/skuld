@@ -19,5 +19,8 @@
   "private": true,
   "devDependencies": {
     "jest-cli": "^0.4.0"
+  },
+  "dependencies": {
+    "q": "^1.3.0"
   }
 }
