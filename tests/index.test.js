@@ -1,12 +1,10 @@
-var mainPathfile = '..';
-
 jest.dontMock('q');
-jest.dontMock(mainPathfile);
+jest.dontMock('..');
 describe('Main', function describeMain() {
   var main;
 
   beforeEach(function () {
-    main = require(mainPathfile);
+    main = require('..');
   });
 
   afterEach(function () {
@@ -23,6 +21,7 @@ describe('Main', function describeMain() {
       expect(result).toEqual({
         gameId: 1
       });
+      return 1;
     });
   });
 });
