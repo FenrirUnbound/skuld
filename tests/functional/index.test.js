@@ -26,6 +26,7 @@ describe('Main', function describeMain() {
       expect(result.turns.order).toEqual([
         testPlayerId
       ]);
+      expect(result.turns.rounds).toEqual(1);
     });
   });
 
