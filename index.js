@@ -3,12 +3,20 @@ var q = require('q');
 function createGame(params, callback) {
   return q(params)
   .then(function (params) {
-    return params.gameId;
-  })
-  .then(function (gameId) {
     return {
-      gameId: gameId
+      gameId: params.gameId,
+      playerId: params.playerId
     };
+  })
+  .then(function (gameInfo) {
+    var game = {
+      gameId: gameInfo.gameId,
+      players: {}
+    };
+
+    game.players[gameInfo.playerId] = {};
+
+    return game;
   })
   .nodeify(callback);
 }
