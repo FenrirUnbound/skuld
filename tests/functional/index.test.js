@@ -22,6 +22,7 @@ describe('Main', function describeMain() {
       expect(result.players).toEqual({
         12: {}
       });
+      expect(result.turns).toEqual(0);
     });
   });
 

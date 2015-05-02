@@ -11,7 +11,8 @@ function createGame(params, callback) {
   .then(function (gameInfo) {
     var game = {
       gameId: gameInfo.gameId,
-      players: {}
+      players: {},
+      turns: 0
     };
 
     game.players[gameInfo.playerId] = {};
