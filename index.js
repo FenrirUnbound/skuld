@@ -16,7 +16,8 @@ function createGame(params, callback) {
         count: 0,
         order: [
           gameInfo.playerId
-        ]
+        ],
+        rounds: 1
       }
     };
 
