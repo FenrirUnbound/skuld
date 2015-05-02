@@ -1,5 +1,4 @@
-jest.dontMock('q');
-jest.dontMock('..');
+jest.autoMockOff();
 describe('Main', function describeMain() {
   var main;
 
@@ -11,17 +10,14 @@ describe('Main', function describeMain() {
     main = null;
   });
 
-  pit('should be able to create a new game', function testCreateGame() {
-    var testGameId = 321;
-
+  pit('should create a new game', function testCustomCreateGame() {
+    var testGameId = 2015;
     return main.createGame({
       gameId: testGameId
     })
     .then(function verify(result) {
-      expect(result).toEqual({
-        gameId: 1
-      });
-      return 1;
+      expect(result.gameId).toEqual(testGameId);
     });
   });
+
 });
