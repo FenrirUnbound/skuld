@@ -22,7 +22,10 @@ describe('Main', function describeMain() {
       expect(result.players).toEqual({
         12: {}
       });
-      expect(result.turns).toEqual(0);
+      expect(result.turns.count).toEqual(0);
+      expect(result.turns.order).toEqual([
+        testPlayerId
+      ]);
     });
   });
 

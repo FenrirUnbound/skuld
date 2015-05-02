@@ -12,7 +12,12 @@ function createGame(params, callback) {
     var game = {
       gameId: gameInfo.gameId,
       players: {},
-      turns: 0
+      turns: {
+        count: 0,
+        order: [
+          gameInfo.playerId
+        ]
+      }
     };
 
     game.players[gameInfo.playerId] = {};
