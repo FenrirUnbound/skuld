@@ -19,13 +19,9 @@ describe('Main', function describeMain() {
     })
     .then(function verify(result) {
       expect(result.gameId).toEqual(testGameId);
-      expect(result.players).toEqual({
-        12: {}
-      });
+      expect(result.players).toEqual({});
       expect(result.turns.count).toEqual(0);
-      expect(result.turns.order).toEqual([
-        testPlayerId
-      ]);
+      expect(result.turns.order).toEqual([]);
       expect(result.turns.rounds).toEqual(1);
     });
   });

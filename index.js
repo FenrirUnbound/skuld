@@ -1,27 +1,18 @@
 var q = require('q');
 
 function createGame(params, callback) {
-  return q(params)
-  .then(function (params) {
-    return {
-      gameId: params.gameId,
-      playerId: params.playerId
-    };
-  })
-  .then(function (gameInfo) {
+  var gameId = params.gameId;
+  return q(gameId)
+  .then(function (gameId) {
     var game = {
-      gameId: gameInfo.gameId,
+      gameId: gameId,
       players: {},
       turns: {
         count: 0,
-        order: [
-          gameInfo.playerId
-        ],
+        order: [],
         rounds: 1
       }
     };
-
-    game.players[gameInfo.playerId] = {};
 
     return game;
   })
