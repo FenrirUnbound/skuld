@@ -19,6 +19,20 @@ function createGame(params, callback) {
   .nodeify(callback);
 }
 
+function joinGame(game, params, callback) {
+  var playerId = params.playerId;
+
+  return q(playerId)
+  .then(function (playerId) {
+    game.players[playerId] = {};
+    game.turns.order.push(playerId);
+
+    return game;
+  })
+  .nodeify(callback);
+}
+
 module.exports = {
-  createGame: createGame
+  createGame: createGame,
+  joinGame: joinGame
 };
