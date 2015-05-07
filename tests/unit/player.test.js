@@ -1,5 +1,5 @@
-jest.dontMock('q');
-jest.dontMock('../../lib/player');
+var expect = require('chai').expect;
+
 describe('Player', function describePlayer() {
   var player;
 
@@ -11,14 +11,15 @@ describe('Player', function describePlayer() {
     player = null;
   });
 
-  pit('should be able to create a player', function testCreatePlayer() {
-    return player.createPlayer({
+  it('should be able to create a player', function testCreatePlayer(done) {
+    player.createPlayer({
       playerId: 123
     })
     .then(function verify(data) {
-      expect(data).toEqual({
+      expect(data).to.deep.equal({
         id: 123
       });
-    });
+    })
+    .done(done);
   });
 });
