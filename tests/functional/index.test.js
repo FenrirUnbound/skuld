@@ -51,7 +51,9 @@ describe('Main', function describeMain() {
         .to.equal(testGameId);
       expect(result).to.have.property('players')
         .to.deep.equal({
-          9001: {}
+          9001: {
+            id: 9001
+          }
         });
       expect(result.turns).to.have.property('order')
         .to.deep.equal([
