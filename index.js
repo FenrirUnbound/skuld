@@ -1,3 +1,4 @@
+var player = require('./lib/player');
 var q = require('q');
 
 function createGame(params, callback) {
@@ -22,9 +23,12 @@ function createGame(params, callback) {
 function joinGame(game, params, callback) {
   var playerId = params.playerId;
 
-  return q(playerId)
-  .then(function (playerId) {
-    game.players[playerId] = {};
+  return q({
+    playerId: playerId
+  })
+  .then(player.createPlayer)
+  .then(function addPlayer(playerData) {
+    game.players[playerId] = playerData;
     game.turns.order.push(playerId);
 
     return game;
