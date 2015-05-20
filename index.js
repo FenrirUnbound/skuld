@@ -26,6 +26,7 @@ function joinGame(game, params, callback) {
 }
 
 module.exports = {
+  createClient: require('./lib/client'),
   createGame: createGame,
   joinGame: joinGame
 };
